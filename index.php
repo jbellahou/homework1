@@ -39,6 +39,7 @@ if ($result->num_rows > 0) {
     <td><?=$row["instructor_id"]?></td>
     <td><?=$row["instructor_name"]?></td>
   </tr>
+<?php
   }
 } else {
   echo "0 results";
