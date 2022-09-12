@@ -11,15 +11,27 @@
 $servername = "localhost";
 $username = "projecto_homework3";
 $password = "0w_zeP}]OVy0";
+$dbname = "projecto_homework3";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
-
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+
+$sql = "SELECT instructor_id, instructor_name from instructor";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["instructor_id"]. " - Name: " . $row["instructor_name"] . "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
 ?>
     <h1>Hello, world!</h1>
     <form action="handlepost.php" method="get">
