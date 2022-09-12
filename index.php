@@ -7,7 +7,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-<?php
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
 $servername = "localhost";
 $username = "projecto_homework3";
 $password = "0w_zeP}]OVy0";
@@ -26,13 +34,19 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["instructor_id"]. " - Name: " . $row["instructor_name"] . "<br>";
+?>
+  <tr>
+    <td><?=$row["instructor_id"]?></td>
+    <td><?=$row["instructor_name"]?></td>
+  </tr>
   }
 } else {
   echo "0 results";
 }
 $conn->close();
 ?>
+  </tbody>
+    </table>
     <h1>Hello, world!</h1>
     <form action="handlepost.php" method="get">
 Name: <input type="text" name="name"><br>
