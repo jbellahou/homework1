@@ -42,6 +42,8 @@ if ($result->num_rows > 0) {
     }
 ?>
       </ul></p>
+  </div>
+    </div>
 <?php
   }
 } else {
