@@ -15,6 +15,7 @@
       <th>Prefix</th>
       <th>Number</th>
       <th>Description</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +44,12 @@ if ($result->num_rows > 0) {
     <td><?=$row["prefix"]?></td>
     <td><?=$row["number"]?></td>
     <td><?=$row["description"]?></td>
+    <td>
+      <form method="post" action="course-section.php">
+        <input type="hidden" name="id" value="<?=$row["course_id"]?>" />
+        <input type="submit" value"Sections" />
+      </form>
+    </td>
   </tr>
 <?php
   }
