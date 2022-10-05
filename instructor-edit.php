@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "SELECT instructor_id, instructor_name from instructor where instructor_id=?";
-$stmt = $conn->prepare();
+$stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['iid']);
 $stmt->execute();
 $result = $stmt->get_result();
