@@ -14,6 +14,7 @@
       <th>ID</th>
       <th>Name</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -44,6 +45,12 @@ if ($result->num_rows > 0) {
       <form method="post" action="instructor-edit.php">
         <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
         <input type="submit" value="Edit" class="btn" />
+      </form>
+    </td>
+    <td>
+      <form method="post" action="instructor-delete-save.php">
+        <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
+        <input type="submit" value="Delete" class="btn" onclick="confirm('Are you sure?')" />
       </form>
     </td>
   </tr>
