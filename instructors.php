@@ -13,6 +13,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -39,6 +40,12 @@ if ($result->num_rows > 0) {
   <tr>
     <td><?=$row["instructor_id"]?></td>
     <td><a href="instructor-section.php?id=<?=$row["instructor_id"]?>"><?=$row["instructor_name"]?></a></td>
+    <td>
+      <form method="post" action="instructor-edit.php">
+        <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
+        <input type="submit" value="Edit" class="btn" />
+      </form>
+    </td>
   </tr>
 <?php
   }
