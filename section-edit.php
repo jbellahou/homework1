@@ -33,13 +33,13 @@ if ($result->num_rows > 0) {
 ?>
 <form method="post" action="section-edit-save.php">
   <div class="mb-3">
-    <label for="instructorName" class="form-label">Name</label>
-    <input type="text" class="form-control" id="instructorName" aria-describedby="nameHelp" name="iName" value="<?=$row['instructor_name']?>">
-    <div id="nameHelp" class="form-text">Enter the instructor's name.</div>
+    <label for="sectionNumber" class="form-label">Section number</label>
+    <input type="text" class="form-control" id="sectionNumber" aria-describedby="nameHelp" name="sNumber" value="<?=$row['section_number']?>">
+    <div id="nameHelp" class="form-text">Enter the section number.</div>
   </div>
   <div class="mb-3">
   <label for="instructorList" class="form-label">Instructor</label>
-<select class="form-select" aria-label="Select instructor" id="instructorList">
+<select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
 <?php
     $instructorSql = "select * from instructor order by instructor_name";
     $instructorResult = $conn->query($instructorSql);
