@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
   <label for="instructorList" class="form-label">Instructor</label>
 <select class="form-select" aria-label="Select instructor" id="instructorList">
 <?php
-    $instructorSql = "select * from instructor order by instructor_name"
+    $instructorSql = "select * from instructor order by instructor_name";
     $instructorResult = $conn->query($instructorSql);
     while($instructorRow = $instructorResult->fetch_assoc()) {
       if ($instructorRow['instructor_id'] == $row['instructor_id']) {
