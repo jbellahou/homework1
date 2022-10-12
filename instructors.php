@@ -12,7 +12,7 @@
 <?php
 $servername = "localhost";
 $username = "projecto_homework3";
-$password = "@9QPh$M&NNZY";
+$password = "Qa._@ZR@QtoU";
 $dbname = "projecto_homework3";
 
 // Create connection
