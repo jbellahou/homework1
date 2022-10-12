@@ -90,7 +90,7 @@ if ($result->num_rows > 0) {
                         </div>
                         <input type="hidden" name="iid" value="<?=$row['instructor_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
-                        <input type="submit" class="btn btn-primary">Submit</button>
+                        <input type="submit" class="btn btn-primary" value="Submit">
                       </form>
                     </div>
                   </div>
@@ -101,7 +101,7 @@ if ($result->num_rows > 0) {
               <form method="post" action="">
                 <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
-                <input type="submit" class="btn" onclick="return confirm('Are you sure?')">Delete</button>
+                <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
             </td>
           </tr>
