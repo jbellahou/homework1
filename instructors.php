@@ -7,6 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
+<?php
+$servername = "localhost";
+$username = "projecto_homework3";
+$password = "0w_zeP}]OVy0";
+$dbname = "projecto_homework3";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$sqlAdd = "insert into instructor (instructor_name) value (?)";
+
+    $stmtAdd = $conn->prepare($sqlAdd);
+    $stmtAdd->bind_param("s", $_POST['iName']);
+    $stmtAdd->execute();
+  echo '<div class="alert alert-success" role="alert">New instructor added.</div>';
+}
+?>
+    
     <h1>Instructors</h1>
 <table class="table table-striped">
   <thead>
@@ -19,18 +42,6 @@
   </thead>
   <tbody>
     <?php
-$servername = "localhost";
-$username = "projecto_homework3";
-$password = "0w_zeP}]OVy0";
-$dbname = "projecto_homework3";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
 $sql = "SELECT instructor_id, instructor_name from instructor";
 $result = $conn->query($sql);
 
