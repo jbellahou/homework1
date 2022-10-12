@@ -88,9 +88,10 @@ if ($result->num_rows > 0) {
       </div>
     </td>
     <td>
-      <form method="post" action="instructor-delete-save.php">
+      <form method="post" action="">
         <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
-        <input type="submit" value="Delete" class="btn" onclick="confirm('Are you sure?')" />
+        <input type="hidden" name="saveType" value="Delete">
+        <button type="submit" class="btn" onclick="confirm('Are you sure?')">Delete</button>
       </form>
     </td>
   </tr>
