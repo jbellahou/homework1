@@ -53,10 +53,31 @@ if ($result->num_rows > 0) {
     <td><?=$row["instructor_id"]?></td>
     <td><a href="instructor-section.php?id=<?=$row["instructor_id"]?>"><?=$row["instructor_name"]?></a></td>
     <td>
-      <form method="post" action="instructor-edit.php">
-        <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editInstructor<?=$row["instructor_id"]?>">
+        Edit
+      </button>
+      <div class="modal fade" id="editInstructor<?=$row["instructor_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editInstructor<?=$row["instructor_id"]?>Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editInstructor<?=$row["instructor_id"]?>Label">Edit Instructor</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="">
+                <div class="mb-3">
+                  <label for="editInstructor<?=$row["instructor_id"]?>Name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="editInstructor<?=$row["instructor_id"]?>Name" aria-describedby="editInstructor<?=$row["instructor_id"]?>Help" name="iName" value="<?=$row['instructor_name']?>">
+                  <div id="editInstructor<?=$row["instructor_id"]?>Help" class="form-text">Enter the instructor's name.</div>
+                </div>
+                <input type="hidden" name="iid" value="<?=$row['instructor_id']?>">
+                <input type="hidden" name="saveType" value="Edit">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </td>
     <td>
       <form method="post" action="instructor-delete-save.php">
@@ -95,6 +116,7 @@ $conn->close();
     <input type="text" class="form-control" id="instructorName" aria-describedby="nameHelp" name="iName">
     <div id="nameHelp" class="form-text">Enter the instructor's name.</div>
   </div>
+  <input type="hidden" name="saveType" value="Add">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
       </div>
