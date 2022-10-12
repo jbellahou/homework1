@@ -89,7 +89,7 @@ $conn->close();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-<form method="post" action="instructor-add-save.php">
+<form method="post" action="">
   <div class="mb-3">
     <label for="instructorName" class="form-label">Name</label>
     <input type="text" class="form-control" id="instructorName" aria-describedby="nameHelp" name="iName">
