@@ -36,12 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $stmtEdit->bind_param("si", $_POST['iName'], $_POST['iid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Instructor edited.</div>';
+      break;
     case 'Delete':
       $sqlDelete = "delete from instructor where instructor_id=?";
       $stmtDelete = $conn->prepare($sqlDelete);
       $stmtDelete->bind_param("i", $_POST['iid']);
       $stmtDelete->execute();
       echo '<div class="alert alert-success" role="alert">Instructor deleted.</div>';
+      break;
   }
 }
 ?>
