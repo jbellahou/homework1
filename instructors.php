@@ -64,6 +64,33 @@ $conn->close();
   </tbody>
     </table>
     <br />
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="addInstructor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addInstructorLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addInstructorLabel">Add Instructor</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<form method="post" action="instructor-add-save.php">
+  <div class="mb-3">
+    <label for="instructorName" class="form-label">Name</label>
+    <input type="text" class="form-control" id="instructorName" aria-describedby="nameHelp" name="iName">
+    <div id="nameHelp" class="form-text">Enter the instructor's name.</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+    
     <a href="instructor-add.php" class="btn btn-primary">Add New</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
