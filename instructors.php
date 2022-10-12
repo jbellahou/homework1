@@ -20,13 +20,15 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-$sqlAdd = "insert into instructor (instructor_name) value (?)";
-
-    $stmtAdd = $conn->prepare($sqlAdd);
-    $stmtAdd->bind_param("s", $_POST['iName']);
-    $stmtAdd->execute();
-  echo '<div class="alert alert-success" role="alert">New instructor added.</div>';
+  switch ($_POST['saveType']) {
+    case 'Add':
+      $sqlAdd = "insert into instructor (instructor_name) value (?)";
+      $stmtAdd = $conn->prepare($sqlAdd);
+      $stmtAdd->bind_param("s", $_POST['iName']);
+      $stmtAdd->execute();
+      echo '<div class="alert alert-success" role="alert">New instructor added.</div>';
+      break;
+  }
 }
 ?>
     
