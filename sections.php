@@ -23,7 +23,7 @@
     <?php
 $servername = "localhost";
 $username = "projecto_homework3";
-$password = "0w_zeP}]OVy0";
+$password = "Qa._@ZR@QtoU";
 $dbname = "projecto_homework3";
 
 // Create connection
